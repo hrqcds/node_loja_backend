@@ -1,0 +1,102 @@
+{
+    "env": {
+        "es2020": true,
+        "node": true,
+        "jest": true
+    },
+    "extends": [
+        "airbnb-base",
+        "plugin:@typescript-eslint/recommended",
+        "prettier",
+        "plugin:prettier/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint",
+        "eslint-plugin-import-helpers",
+        "prettier"
+    ],
+    "rules": {
+        "camelcase": "off",
+        "prettier/prettier": [
+            "error",
+            {
+                "arrowParens": "always",
+                "tabWidth": 4,
+                "singleQuote": false,
+                "trailingComma": "all",
+                "semi": true,
+                "endOfLine": "auto"
+            }
+        ],
+        "import/no-unresolved": "error",
+        "import/newline-after-import": "off",
+        "@typescript-eslint/naming-convention": [
+            "error",
+            {
+                "selector": "interface",
+                "format": [
+                    "PascalCase"
+                ],
+                "custom": {
+                    "regex": "^I[A-Z]",
+                    "match": true
+                }
+            }
+        ],
+        "class-methods-use-this": "off",
+        "import/prefer-default-export": "off",
+        "no-shadow": "off",
+        "no-console": "off",
+        "no-useless-constructor": "off",
+        "no-empty-function": "off",
+        "lines-between-class-members": "off",
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+                "ts": "never"
+            }
+        ],
+        "import-helpers/order-imports": [
+            "warn",
+            {
+                "groups": [
+                    "module",
+                    "/^@shared/",
+                    [
+                        "parent",
+                        "sibling",
+                        "index"
+                    ]
+                ],
+                "alphabetize": {
+                    "order": "asc",
+                    "ignoreCase": true
+                }
+            }
+        ],
+        "import/no-extraneous-dependencies": [
+            "error",
+            {
+                "devDependencies": true
+            }
+        ],
+        "@typescript-eslint/no-unused-vars": [
+            "warn",
+            {
+                "argsIgnorePattern": "^_",
+                "varsIgnorePattern": "^_"
+            }
+        ]
+    },
+    "settings": {
+        "import/resolver": {
+            "typescript": {}
+        }
+    }
+}
