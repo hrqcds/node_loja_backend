@@ -10,3 +10,45 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+model Compra {
+  id              Int               @id @default(autoincrement())
+  total           Float
+  tipo_pagamento  Pagamento
+  status          Status            @default(AGUARDANDO)
+  data_criacao    DateTime          @default(now())
+  listaDeProdutos ListaDeProdutos[]
+}
+
+model Produto {
+  id               Int      @id @default(autoincrement())
+  nome             String
+  descricao        String
+  preco            Float
+  data_criacao     DateTime @default(now())
+  data_atualizacao DateTime @updatedAt
+
+
+  listaDeProdutos ListaDeProdutos[]
+}
+
+model ListaDeProdutos {
+  compra        Compra   @relation(fields: [compraId], references: [id])
+  compraId      Int
+  produto       Produto  @relation(fields: [produtoId], references: [id])
+  produtoId     Int
+  adicionado_em DateTime @default(now())
+
+  @@id([compraId, produtoId])
+}
+
+enum Pagamento {
+  DEBITO
+  CREDITO
+  DINHEIRO
+}
+
+enum Status {
+  AGUARDANDO
+  CONCLUIDO
+}
