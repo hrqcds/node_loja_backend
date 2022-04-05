@@ -18,6 +18,8 @@ model Compra {
   status          Status            @default(AGUARDANDO)
   data_criacao    DateTime          @default(now())
   listaDeProdutos ListaDeProdutos[]
+
+  @@map("compras")
 }
 
 model Produto {
@@ -30,16 +32,20 @@ model Produto {
 
 
   listaDeProdutos ListaDeProdutos[]
+
+  @@map("produtos")
 }
 
 model ListaDeProdutos {
-  compra        Compra   @relation(fields: [compraId], references: [id])
+  compra        Compra   @relation(fields: [compraId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   compraId      Int
-  produto       Produto  @relation(fields: [produtoId], references: [id])
+  produto       Produto  @relation(fields: [produtoId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   produtoId     Int
+  quantidade    Int      @default(1)
   adicionado_em DateTime @default(now())
 
   @@id([compraId, produtoId])
+  @@map("lista_de_produtos")
 }
 
 enum Pagamento {

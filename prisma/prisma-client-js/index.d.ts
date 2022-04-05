@@ -44,6 +44,7 @@ export type Produto = {
 export type ListaDeProdutos = {
   compraId: number
   produtoId: number
+  quantidade: number
   adicionado_em: Date
 }
 
@@ -2751,28 +2752,33 @@ export namespace Prisma {
   export type ListaDeProdutosAvgAggregateOutputType = {
     compraId: number | null
     produtoId: number | null
+    quantidade: number | null
   }
 
   export type ListaDeProdutosSumAggregateOutputType = {
     compraId: number | null
     produtoId: number | null
+    quantidade: number | null
   }
 
   export type ListaDeProdutosMinAggregateOutputType = {
     compraId: number | null
     produtoId: number | null
+    quantidade: number | null
     adicionado_em: Date | null
   }
 
   export type ListaDeProdutosMaxAggregateOutputType = {
     compraId: number | null
     produtoId: number | null
+    quantidade: number | null
     adicionado_em: Date | null
   }
 
   export type ListaDeProdutosCountAggregateOutputType = {
     compraId: number
     produtoId: number
+    quantidade: number
     adicionado_em: number
     _all: number
   }
@@ -2781,28 +2787,33 @@ export namespace Prisma {
   export type ListaDeProdutosAvgAggregateInputType = {
     compraId?: true
     produtoId?: true
+    quantidade?: true
   }
 
   export type ListaDeProdutosSumAggregateInputType = {
     compraId?: true
     produtoId?: true
+    quantidade?: true
   }
 
   export type ListaDeProdutosMinAggregateInputType = {
     compraId?: true
     produtoId?: true
+    quantidade?: true
     adicionado_em?: true
   }
 
   export type ListaDeProdutosMaxAggregateInputType = {
     compraId?: true
     produtoId?: true
+    quantidade?: true
     adicionado_em?: true
   }
 
   export type ListaDeProdutosCountAggregateInputType = {
     compraId?: true
     produtoId?: true
+    quantidade?: true
     adicionado_em?: true
     _all?: true
   }
@@ -2902,6 +2913,7 @@ export namespace Prisma {
   export type ListaDeProdutosGroupByOutputType = {
     compraId: number
     produtoId: number
+    quantidade: number
     adicionado_em: Date
     _count: ListaDeProdutosCountAggregateOutputType | null
     _avg: ListaDeProdutosAvgAggregateOutputType | null
@@ -2929,6 +2941,7 @@ export namespace Prisma {
     compraId?: boolean
     produto?: boolean | ProdutoArgs
     produtoId?: boolean
+    quantidade?: boolean
     adicionado_em?: boolean
   }
 
@@ -3660,6 +3673,7 @@ export namespace Prisma {
   export const ListaDeProdutosScalarFieldEnum: {
     compraId: 'compraId',
     produtoId: 'produtoId',
+    quantidade: 'quantidade',
     adicionado_em: 'adicionado_em'
   };
 
@@ -3789,6 +3803,7 @@ export namespace Prisma {
     compraId?: IntFilter | number
     produto?: XOR<ProdutoRelationFilter, ProdutoWhereInput>
     produtoId?: IntFilter | number
+    quantidade?: IntFilter | number
     adicionado_em?: DateTimeFilter | Date | string
   }
 
@@ -3797,6 +3812,7 @@ export namespace Prisma {
     compraId?: SortOrder
     produto?: ProdutoOrderByWithRelationInput
     produtoId?: SortOrder
+    quantidade?: SortOrder
     adicionado_em?: SortOrder
   }
 
@@ -3807,6 +3823,7 @@ export namespace Prisma {
   export type ListaDeProdutosOrderByWithAggregationInput = {
     compraId?: SortOrder
     produtoId?: SortOrder
+    quantidade?: SortOrder
     adicionado_em?: SortOrder
     _count?: ListaDeProdutosCountOrderByAggregateInput
     _avg?: ListaDeProdutosAvgOrderByAggregateInput
@@ -3821,6 +3838,7 @@ export namespace Prisma {
     NOT?: Enumerable<ListaDeProdutosScalarWhereWithAggregatesInput>
     compraId?: IntWithAggregatesFilter | number
     produtoId?: IntWithAggregatesFilter | number
+    quantidade?: IntWithAggregatesFilter | number
     adicionado_em?: DateTimeWithAggregatesFilter | Date | string
   }
 
@@ -3948,40 +3966,47 @@ export namespace Prisma {
   export type ListaDeProdutosCreateInput = {
     compra: CompraCreateNestedOneWithoutListaDeProdutosInput
     produto: ProdutoCreateNestedOneWithoutListaDeProdutosInput
+    quantidade?: number
     adicionado_em?: Date | string
   }
 
   export type ListaDeProdutosUncheckedCreateInput = {
     compraId: number
     produtoId: number
+    quantidade?: number
     adicionado_em?: Date | string
   }
 
   export type ListaDeProdutosUpdateInput = {
     compra?: CompraUpdateOneRequiredWithoutListaDeProdutosInput
     produto?: ProdutoUpdateOneRequiredWithoutListaDeProdutosInput
+    quantidade?: IntFieldUpdateOperationsInput | number
     adicionado_em?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ListaDeProdutosUncheckedUpdateInput = {
     compraId?: IntFieldUpdateOperationsInput | number
     produtoId?: IntFieldUpdateOperationsInput | number
+    quantidade?: IntFieldUpdateOperationsInput | number
     adicionado_em?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ListaDeProdutosCreateManyInput = {
     compraId: number
     produtoId: number
+    quantidade?: number
     adicionado_em?: Date | string
   }
 
   export type ListaDeProdutosUpdateManyMutationInput = {
+    quantidade?: IntFieldUpdateOperationsInput | number
     adicionado_em?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ListaDeProdutosUncheckedUpdateManyInput = {
     compraId?: IntFieldUpdateOperationsInput | number
     produtoId?: IntFieldUpdateOperationsInput | number
+    quantidade?: IntFieldUpdateOperationsInput | number
     adicionado_em?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -4228,29 +4253,34 @@ export namespace Prisma {
   export type ListaDeProdutosCountOrderByAggregateInput = {
     compraId?: SortOrder
     produtoId?: SortOrder
+    quantidade?: SortOrder
     adicionado_em?: SortOrder
   }
 
   export type ListaDeProdutosAvgOrderByAggregateInput = {
     compraId?: SortOrder
     produtoId?: SortOrder
+    quantidade?: SortOrder
   }
 
   export type ListaDeProdutosMaxOrderByAggregateInput = {
     compraId?: SortOrder
     produtoId?: SortOrder
+    quantidade?: SortOrder
     adicionado_em?: SortOrder
   }
 
   export type ListaDeProdutosMinOrderByAggregateInput = {
     compraId?: SortOrder
     produtoId?: SortOrder
+    quantidade?: SortOrder
     adicionado_em?: SortOrder
   }
 
   export type ListaDeProdutosSumOrderByAggregateInput = {
     compraId?: SortOrder
     produtoId?: SortOrder
+    quantidade?: SortOrder
   }
 
   export type ListaDeProdutosCreateNestedManyWithoutCompraInput = {
@@ -4543,11 +4573,13 @@ export namespace Prisma {
 
   export type ListaDeProdutosCreateWithoutCompraInput = {
     produto: ProdutoCreateNestedOneWithoutListaDeProdutosInput
+    quantidade?: number
     adicionado_em?: Date | string
   }
 
   export type ListaDeProdutosUncheckedCreateWithoutCompraInput = {
     produtoId: number
+    quantidade?: number
     adicionado_em?: Date | string
   }
 
@@ -4583,16 +4615,19 @@ export namespace Prisma {
     NOT?: Enumerable<ListaDeProdutosScalarWhereInput>
     compraId?: IntFilter | number
     produtoId?: IntFilter | number
+    quantidade?: IntFilter | number
     adicionado_em?: DateTimeFilter | Date | string
   }
 
   export type ListaDeProdutosCreateWithoutProdutoInput = {
     compra: CompraCreateNestedOneWithoutListaDeProdutosInput
+    quantidade?: number
     adicionado_em?: Date | string
   }
 
   export type ListaDeProdutosUncheckedCreateWithoutProdutoInput = {
     compraId: number
+    quantidade?: number
     adicionado_em?: Date | string
   }
 
@@ -4708,36 +4743,43 @@ export namespace Prisma {
 
   export type ListaDeProdutosCreateManyCompraInput = {
     produtoId: number
+    quantidade?: number
     adicionado_em?: Date | string
   }
 
   export type ListaDeProdutosUpdateWithoutCompraInput = {
     produto?: ProdutoUpdateOneRequiredWithoutListaDeProdutosInput
+    quantidade?: IntFieldUpdateOperationsInput | number
     adicionado_em?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ListaDeProdutosUncheckedUpdateWithoutCompraInput = {
     produtoId?: IntFieldUpdateOperationsInput | number
+    quantidade?: IntFieldUpdateOperationsInput | number
     adicionado_em?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ListaDeProdutosUncheckedUpdateManyWithoutListaDeProdutosInput = {
     produtoId?: IntFieldUpdateOperationsInput | number
+    quantidade?: IntFieldUpdateOperationsInput | number
     adicionado_em?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ListaDeProdutosCreateManyProdutoInput = {
     compraId: number
+    quantidade?: number
     adicionado_em?: Date | string
   }
 
   export type ListaDeProdutosUpdateWithoutProdutoInput = {
     compra?: CompraUpdateOneRequiredWithoutListaDeProdutosInput
+    quantidade?: IntFieldUpdateOperationsInput | number
     adicionado_em?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ListaDeProdutosUncheckedUpdateWithoutProdutoInput = {
     compraId?: IntFieldUpdateOperationsInput | number
+    quantidade?: IntFieldUpdateOperationsInput | number
     adicionado_em?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 

@@ -96,6 +96,7 @@ exports.Prisma.ProdutoScalarFieldEnum = makeEnum({
 exports.Prisma.ListaDeProdutosScalarFieldEnum = makeEnum({
   compraId: 'compraId',
   produtoId: 'produtoId',
+  quantidade: 'quantidade',
   adicionado_em: 'adicionado_em'
 });
 
