@@ -1,0 +1,7 @@
+PUT http://localhost:4000/compras/update/1
+Content-Type: application/json
+
+{
+    "tipo_pagamento": "credito",
+    "status": "concluido"
+}

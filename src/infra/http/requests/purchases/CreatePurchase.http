@@ -1,0 +1,10 @@
+POST http://localhost:4000/compras/create
+Content-Type: application/json
+
+{
+    "tipo_pagamento": "debito",
+    "status": "concluido",
+    "produtos": [
+        {"id": 1, "preco": 8.75, "quantidade": 5 }
+    ]
+}

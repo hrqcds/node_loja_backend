@@ -16,17 +16,24 @@ async function ErrorMiddleware(
     res: Response,
     _next: NextFunction,
 ): Promise<Response> {
-    if (err instanceof ServerError) {
-        return res.status(err.statusCode).json({
+    try {
+        if (err instanceof ServerError) {
+            return res.status(err.statusCode).json({
+                status: "error",
+                message: err.message,
+            });
+        }
+
+        return res.status(500).json({
             status: "error",
-            message: err.message,
+            message: "server internal error",
+        });
+    } catch (error) {
+        return res.status(500).json({
+            status: "error",
+            message: "server internal error",
         });
     }
-
-    return res.status(500).json({
-        status: "error",
-        message: "server internal error",
-    });
 }
 
 export { ServerError, ErrorMiddleware };
