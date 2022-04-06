@@ -14,6 +14,6 @@ server.use(router);
 server.use(ErrorMiddleware);
 
 server.listen(config.port, () => {
-    console.log(`Server is running in port${config.port}`);
+    console.log(`Server is running in port ${config.port}`);
     console.log(`Access: http://localhost:${config.port}`);
 });
