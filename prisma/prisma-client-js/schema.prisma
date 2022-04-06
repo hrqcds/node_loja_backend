@@ -1,0 +1,60 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "./prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Compra {
+  id              Int               @id @default(autoincrement())
+  total           Float
+  tipo_pagamento  Pagamento
+  status          Status            @default(AGUARDANDO)
+  data_criacao    DateTime          @default(now())
+  listaDeProdutos ListaDeProdutos[]
+
+  @@map("compras")
+}
+
+model Produto {
+  id               Int      @id @default(autoincrement())
+  nome             String
+  descricao        String
+  preco            Float
+  data_criacao     DateTime @default(now())
+  data_atualizacao DateTime @updatedAt
+
+
+  listaDeProdutos ListaDeProdutos[]
+
+  @@map("produtos")
+}
+
+model ListaDeProdutos {
+  compra        Compra   @relation(fields: [compraId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  compraId      Int
+  produto       Produto  @relation(fields: [produtoId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  produtoId     Int
+  quantidade    Int      @default(1)
+  adicionado_em DateTime @default(now())
+
+  @@id([compraId, produtoId])
+  @@map("lista_de_produtos")
+}
+
+enum Pagamento {
+  DEBITO
+  CREDITO
+  DINHEIRO
+}
+
+enum Status {
+  AGUARDANDO
+  CONCLUIDO
+}
