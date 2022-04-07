@@ -139,7 +139,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "D:\\dev\\projetos\\loja\\prisma\\prisma-client-js",
+      "value": "C:\\Users\\henrique.santos\\Documents\\projetos\\tmp\\aaaaaaaaaaaaaa\\back\\prisma\\prisma-client-js",
       "fromEnvVar": null
     },
     "config": {

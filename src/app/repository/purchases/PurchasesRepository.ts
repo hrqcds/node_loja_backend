@@ -49,8 +49,18 @@ function PurchasesRepository(): IPurchaseRepository {
     const FindPurchaseById = async (id: number) => {
         const compra = await db.compra.findUnique({
             where: { id },
-            include: {
-                listaDeProdutos: true,
+            select: {
+                id: true,
+                status: true,
+                tipo_pagamento: true,
+                total: true,
+                data_criacao: true,
+                listaDeProdutos: {
+                    select: {
+                        quantidade: true,
+                        produto: true,
+                    },
+                },
             },
         });
 
