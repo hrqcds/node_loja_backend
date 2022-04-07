@@ -18,4 +18,5 @@ export interface IProductRepository {
     FindProductByName(name: string): Promise<Produto>;
     CreateProduct(data: ICreateProductRequest): Promise<Produto>;
     UpdateProduct(id: number, data: IUpdateProductRequest);
+    DeleteProduct(id: number);
 }

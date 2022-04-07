@@ -62,12 +62,21 @@ function ProductRepository(): IProductRepository {
         });
     };
 
+    const DeleteProduct = async (id: number) => {
+        await db.produto.delete({
+            where: {
+                id,
+            },
+        });
+    };
+
     return {
         GetAllProducts,
         CreateProduct,
         FindProductByName,
         FindProductById,
         UpdateProduct,
+        DeleteProduct,
     };
 }
 

@@ -59,9 +59,15 @@ function PurchasesRepository(): IPurchaseRepository {
 
     const FindAllPurchases = async () => {
         const purchases = await db.compra.findMany({
-            include: {
+            select: {
+                id: true,
+                status: true,
+                tipo_pagamento: true,
+                total: true,
+                data_criacao: true,
                 listaDeProdutos: {
-                    include: {
+                    select: {
+                        quantidade: true,
                         produto: true,
                     },
                 },
@@ -82,11 +88,18 @@ function PurchasesRepository(): IPurchaseRepository {
         });
     };
 
+    const DeletePurchase = async (id: number) => {
+        await db.compra.delete({
+            where: { id },
+        });
+    };
+
     return {
         CreatePucharse,
         FindPurchaseById,
         FindAllPurchases,
         UpdatePurchase,
+        DeletePurchase,
     };
 }
 
