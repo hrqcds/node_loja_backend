@@ -23,4 +23,5 @@ export interface IPurchaseRepository {
     FindPurchaseById(id: number);
     FindAllPurchases();
     UpdatePurchase(id: number, status: Status, tipo_pagamento: Pagamento);
+    DeletePurchase(id: number);
 }
