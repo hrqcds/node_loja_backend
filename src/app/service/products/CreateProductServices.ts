@@ -13,7 +13,7 @@ function CreateProductServices() {
         ValidateCreateProduct({ nome, descricao, preco });
 
         // Verificando se produto já existe no sistema
-        const productExist = ProductsRepository.FindProductByName(nome);
+        const productExist = await ProductsRepository.FindProductByName(nome);
 
         if (productExist) {
             throw new ServerError("Produto existente no sistema");

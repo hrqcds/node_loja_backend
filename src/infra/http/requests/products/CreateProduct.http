@@ -3,6 +3,6 @@ Content-Type: application/json
 
 {
     "nome": "Chocolate",
-    "descricao": "",
+    "descricao": "Amendoim com morango",
     "preco": 8.75
 }
