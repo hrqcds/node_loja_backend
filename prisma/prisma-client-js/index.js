@@ -139,7 +139,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\henrique.santos\\Documents\\projetos\\tmp\\aaaaaaaaaaaaaa\\back\\prisma\\prisma-client-js",
+      "value": "D:\\dev\\projetos\\back\\prisma\\prisma-client-js",
       "fromEnvVar": null
     },
     "config": {
@@ -150,8 +150,7 @@ const config = {
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": "..\\..\\.env",
-    "schemaEnvPath": "..\\..\\.env"
+    "rootEnvPath": null
   },
   "relativePath": "..",
   "clientVersion": "3.12.0",
